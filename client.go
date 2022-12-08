@@ -261,7 +261,7 @@ func (a *Client) CopyFromRemotePassThru(ctx context.Context, w io.Writer, remote
 		}
 		defer in.Close()
 
-		err = a.Session.Start(fmt.Sprintf("%s -f %q", a.RemoteBinary, remotePath))
+		err = a.Session.Start(fmt.Sprintf("%s -f %s", a.RemoteBinary, remotePath))
 		if err != nil {
 			errCh <- err
 			return

@@ -196,7 +196,7 @@ func (a *Client) CopyPassThru(ctx context.Context, r io.Reader, remotePath strin
 
 	go func() {
 		defer wg.Done()
-		err := a.Session.Run(fmt.Sprintf("%s -qt %q", a.RemoteBinary, remotePath))
+		err := a.Session.Run(fmt.Sprintf("%s -qt %s", a.RemoteBinary, remotePath))
 		if err != nil {
 			errCh <- err
 			return
